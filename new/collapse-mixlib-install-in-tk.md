@@ -40,11 +40,13 @@ This work is separated into 3 phases.
 * All existing configuration options still behave as expected
 * User is clearly warned when using options that will be deprecated
 * Deprecation warnings include explanations and resolution instructions
+* Inform the community of the upcoming Kitchen changes and reasoning
 
 ##### Phase 3 - Make the switch
 * Raise errors along with instructions when using deprecated options 
 * `ScriptGenerator` code path removed from Kitchen
 * docs.chef.io and kitchen.ci documentation updates
+* Inform the community when Kitchen is released
 
 ### Phase 1 Details
 Below is a proposal of how the new options `product_version` and `install_strategy` replace `require_chef_omnibus`. It outlines requirements to maintain feature parity with Kitchen's current configuration options. Since `require_chef_omnibus` is a complex option it warranted this level of detail.
@@ -151,9 +153,10 @@ To further separate new from old functionality, none of the options should cross
 As new options are added a markdown file in the Kitchen repo will be maintained with descriptions along with deprecation information.
 
 ### Phase 2 Details
-The planned deprecated config options will be turned "on". Users will start getting deprecation warnings and begin resolving issues. At this phase we expect to be feature complete, however, there will likely be use cases or configuration combinations that are missed. Any detected deprecation warnings will also instruct the user to create issues if the resolutions don't work or don't need their requirements.
+The config option deprecations will be enabled. Users will start receiving deprecation warnings and begin resolving issues. At this phase we expect to be feature complete, however, there will likely be use cases or configuration combinations that are missed. Any detected deprecation warnings will also instruct the user to create issues if the resolutions don't work or don't meet their requirements. This phase is primarily focused on communication and quick turnarounds on issues.
 
 ### Phase 3 Details
+The deprecation warnings will be updated to raise errors. The code will be cleaned up of the old code paths. This phase is technically the most simple. Again, communication, availability, and responsiveness are the keys to this phase. Before releasing, all documentation sources will need to be prepared and ready to be published. The Kitchen major version release will coincide with all documentation publishing.
 
 ## Documentation
 Sources that will require updates:
